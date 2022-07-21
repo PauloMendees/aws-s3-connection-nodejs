@@ -11,7 +11,7 @@ export class UploadFileUseCase {
 
     async execute(fileKey: string, file: Express.Multer.File): Promise<UploadFileUseCaseResponse>{
         try {
-            const isAcceptExtension = this.fileProvider.extensionValidate(["jpeg", "jpg", "png"], file)
+            const isAcceptExtension = this.fileProvider.extensionValidate(["pdf"], file)
             const isAcceptSize = this.fileProvider.sizeFileValidate(file, 5000000)
     
             if(!isAcceptExtension) throw new ExceptionProvider({ status: 406, message: "Nova imagem deve ser no formato PNG ou JPG / JPEG!." })

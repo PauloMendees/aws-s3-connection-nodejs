@@ -1,5 +1,6 @@
 import express from 'express'
 import bodyParser from 'body-parser'
+import { awsRouter } from './routes/aws/s3.routes';
 
 const cors = require('cors')
 
@@ -35,5 +36,6 @@ app.use(function (req: any, res: any, next: any) {
 
   app.use(bodyParser.json())
   app.use(bodyParser.urlencoded({extended: true}))
+  app.use(awsRouter)
 
   export { app }

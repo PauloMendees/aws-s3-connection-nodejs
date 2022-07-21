@@ -3,14 +3,14 @@ import { DeleteFileUseCase } from '../../useCases/deleteFileUseCase'
 
 export class DeleteFileController {
     constructor(
-        private deleteFileProvider: DeleteFileUseCase
+        private deleteFileUseCase: DeleteFileUseCase
     ){}
 
     async handle(req: Request, res: Response){
         try {
             const { fileKey } = req.params
 
-            await this.deleteFileProvider.execute(fileKey);
+            await this.deleteFileUseCase.execute(fileKey);
 
             return res.status(200).json({
                 error: false,
