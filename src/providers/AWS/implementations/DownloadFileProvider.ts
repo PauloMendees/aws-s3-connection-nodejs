@@ -3,6 +3,12 @@ import { IDownloadFileProvider } from "../interfaces/IDownloadFileProvider";
 import { S3 } from "../lib/S3";
 
 export class DownloadFileProvider implements IDownloadFileProvider {
+    /**
+     * 
+     * @param fileKey File name on S3
+     * @param extension Extension file
+     * @returns filestream, can be downloaded by the client
+     */
     async execute(fileKey: string, extension: string): Promise<any> {
         try {
             const s3 = new S3()

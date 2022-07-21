@@ -3,6 +3,12 @@ import { IDeleteFileProvider } from "../interfaces/IDeleteFileProvider";
 import { S3 } from "../lib/S3";
 
 export class DeleteFileProvider implements IDeleteFileProvider{
+    /**
+     * 
+     * @param fileKey File name on S3
+     * @param extension Extension file
+     * This method find a file with the same name of fileKey and delete the file.
+     */
     async execute(fileKey: string, extension: string): Promise<void> {
         try {
             const s3 = new S3()

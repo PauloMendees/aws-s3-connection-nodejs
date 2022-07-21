@@ -9,6 +9,12 @@ const bucketName = `${process.env.AWS_BUCKET_NAME}`
 const region = `${process.env.AWS_REGION}`
 
 export class UploadFileProvider implements IUploadFileProvider {
+    /**
+     * 
+     * @param fileKey File name on S3
+     * @param file File to be saved on S3
+     * @returns S3 upload data and success confirmation
+     */
     async execute(fileKey: string, file: Express.Multer.File): Promise<UploadFileResponse> {
         try {
             const s3 = new S3()
